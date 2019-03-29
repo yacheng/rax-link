@@ -2,6 +2,21 @@ import {createElement} from 'rax';
 import renderer from 'rax-test-renderer';
 import Link from '../';
 
+jest.mock('universal-env', () => {
+  return {
+    isWeex: true
+  };
+});
+
+// Could not mock universal-env in rax-text current,
+// because universal-env is not peer ependencies
+jest.mock('rax-text', () => {
+  return function(props) {
+    return <text value={props.children} />;
+  };
+});
+
+
 describe('Link', () => {
   it('should render a link', () => {
     const component = renderer.create(
@@ -9,7 +24,7 @@ describe('Link', () => {
     );
     let tree = component.toJSON();
     expect(tree.tagName).toEqual('A');
-    expect(tree.children[0].children[0]).toEqual('Example');
+    expect(tree.children[0].attributes.value).toEqual('Example');
   });
 
   it('should turn onPress to onClick', () => {
@@ -29,6 +44,6 @@ describe('Link', () => {
     );
 
     let tree = component.toJSON();
-    expect(tree.children[0].style.fontSize).toBe('100rem');
+    expect(tree.style.fontSize).toBe('100rem');
   });
 });
