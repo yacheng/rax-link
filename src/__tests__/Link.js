@@ -21,16 +21,6 @@ describe('Link', () => {
     expect(tree.eventListeners.click).toBe(mockPress);
   });
 
-  it('is error in a parent link', () => {
-    const component = renderer.create(
-      <Link>
-        <Link>Example</Link>
-      </Link>
-    );
-    let tree = component.toJSON();
-    expect(tree.children).toBe(undefined);
-  });
-
   it('should display the font size according to the props', () => {
     const component = renderer.create(
       <Link style={{fontSize: '100rem'}}>
