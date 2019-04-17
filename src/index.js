@@ -1,5 +1,5 @@
 import { createElement } from 'rax';
-import {isWeex} from 'universal-env';
+import { isWeex } from 'universal-env';
 import Text from 'rax-text';
 
 export default (props) => {
