@@ -33,6 +33,9 @@
   "engines": {
     "npm": ">=3.0.0"
   },
+  "miniappConfig": {
+    "main": "lib/miniapp/index"
+  },
   "dependencies": {
     "rax-text": "^1.0.1-beta.0",
     "universal-env": "^0.6.6"
