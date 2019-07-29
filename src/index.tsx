@@ -1,8 +1,9 @@
-import { createElement } from 'rax';
+import { createElement, useRef, forwardRef, useImperativeHandle } from 'rax';
 import { isWeex } from 'universal-env';
 import Text from 'rax-text';
 
-export default (props) => {
+const Link = (props, ref) => {
+  const linkRef = useRef(null);
   let children = props.children;
   let nativeProps = {...props};
   let style = {
@@ -30,9 +31,15 @@ export default (props) => {
     content = <Text style={textStyle}>{children}</Text>;
   }
 
+  useImperativeHandle(ref, () => ({
+    _nativeNode: linkRef.current
+  }));
+
   if (isWeex) {
-    return <a {...nativeProps}>{content}</a>;
+    return <a ref={linkRef} {...nativeProps}>{content}</a>;
   } else {
-    return <a {...nativeProps} style={style}>{content}</a>;
+    return <a ref={linkRef} {...nativeProps} style={style}>{content}</a>;
   }
 };
+
+export default forwardRef(Link);
