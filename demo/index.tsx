@@ -6,4 +6,4 @@ import Text from 'rax-text';
 render(<Link href={"//www.taobao.com"} onPress={(e)=>{console.log(e)}}><Text style={{
   fontSize: 14,
   color: '#333333'
-}}>点击跳转</Text></Link>, document.body, { driver: DU });
+}}>click to jump</Text></Link>, document.body, { driver: DU });
