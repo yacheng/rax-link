@@ -25,7 +25,6 @@ navigateBack：关闭当前页面，返回上一级或多级页面 四种，
 | href     | `String` | -          |      true        | 跳转目标地址 | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" />|
 | mpHref     | `String` | -          |     true         | 跳转类型:跳转地址 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />|
 ## 示例
-[在线 Demo](https://jsplayground.taobao.org/raxplayground/39400f6c-9106-4a91-bfca-6a925658e660)
 ```jsx
 import {createElement, render} from 'rax';
 import DU from 'driver-universal';
