@@ -6,8 +6,8 @@ Component({
   props: {
     className: '',
     style: '',
-    // minappHref取值：navigate:abc?a=1 redirect:abc?a=1 switchTab:a/b/c navigateBack:2
-    minappHref: '',
+    // miniappHref取值：navigate:abc?a=1 redirect:abc?a=1 switchTab:a/b/c navigateBack:2
+    miniappHref: '',
     onPress: () => { },
     onAppear: () => { },
     onDisAppear: () => { }
@@ -16,9 +16,9 @@ Component({
   },
   methods: {
     onTap(e) {
-      let minappHref = this.props.minappHref;
-      if (minappHref) {
-        let splits = minappHref.split(':');
+      let miniappHref = this.props.miniappHref;
+      if (miniappHref) {
+        let splits = miniappHref.split(':');
         let key = splits[0];
         let value = splits[1];
         switch (key) {
