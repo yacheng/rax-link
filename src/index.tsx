@@ -5,7 +5,7 @@ import Text from 'rax-text';
 const Link = (props, ref) => {
   const linkRef = useRef(null);
   let children = props.children;
-  let nativeProps = {...props};
+  let nativeProps = { ...props };
   let style = {
     ...nativeProps.style
   };
