@@ -2,13 +2,13 @@ import { createElement, useRef, forwardRef, useImperativeHandle } from 'rax';
 import { isWeex } from 'universal-env';
 import Text from 'rax-text';
 import cx from 'classnames/dedupe';
-import './index.css'
 
 const Link = (props, ref) => {
   const linkRef = useRef(null);
   let children = props.children;
   const { className } = props;
   let nativeProps = { ...props };
+  delete nativeProps.className;
   let style = {
     ...nativeProps.style
   };
