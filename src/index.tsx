@@ -1,11 +1,14 @@
 import { createElement, useRef, forwardRef, useImperativeHandle } from 'rax';
 import { isWeex } from 'universal-env';
 import Text from 'rax-text';
+import cx from 'classnames/dedupe';
 
 const Link = (props, ref) => {
   const linkRef = useRef(null);
   let children = props.children;
+  const { className } = props;
   let nativeProps = { ...props };
+  delete nativeProps.className;
   let style = {
     ...nativeProps.style
   };
@@ -36,9 +39,9 @@ const Link = (props, ref) => {
   }));
 
   if (isWeex) {
-    return <a ref={linkRef} {...nativeProps}>{content}</a>;
+    return <a className={cx('rax-link', className)} ref={linkRef} {...nativeProps}>{content}</a>;
   } else {
-    return <a ref={linkRef} {...nativeProps} style={style}>{content}</a>;
+    return <a className={cx('rax-link', className)} ref={linkRef} {...nativeProps} style={style}>{content}</a>;
   }
 };
 
