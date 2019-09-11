@@ -1,18 +1,19 @@
-import { createElement, useRef, forwardRef, useImperativeHandle } from 'rax';
-import { isWeex } from 'universal-env';
+import {
+  createElement,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  ForwardRefExoticComponent
+} from 'rax';
 import Text from 'rax-text';
-import cx from 'classnames/dedupe';
+import omit from 'omit.js';
+import { LinkProps } from './types';
 
-const Link = (props, ref) => {
-  const linkRef = useRef(null);
-  let children = props.children;
-  const { className } = props;
-  let nativeProps = { ...props };
-  delete nativeProps.className;
-  let style = {
-    ...nativeProps.style
-  };
-  let textStyle = {
+const Link: ForwardRefExoticComponent<LinkProps> = forwardRef((props, ref) => {
+  const linkRef = useRef<HTMLLinkElement>(null);
+  const { style = {}, children } = props;
+  const nativeProps = { ...props };
+  const textStyle = {
     color: style.color,
     lines: style.lines,
     fontSize: style.fontSize,
@@ -21,28 +22,28 @@ const Link = (props, ref) => {
     textDecoration: style.textDecoration || 'none',
     textAlign: style.textAlign,
     fontFamily: style.fontFamily,
-    textOverflow: style.textOverflow,
+    textOverflow: style.textOverflow
   };
+
+  useImperativeHandle(ref, () => linkRef.current);
 
   if (nativeProps.onPress) {
     nativeProps.onClick = nativeProps.onPress;
-    delete nativeProps.onPress;
   }
+  
+  return (
+    <a
+      ref={linkRef}
+      style={style}
+      {...omit(nativeProps, ['style', 'onPress', 'children'])}
+    >
+      {typeof children === 'string' ? (
+        <Text style={textStyle}>{children}</Text>
+      ) :
+        children
+      }
+    </a>
+  );
+});
 
-  let content = children;
-  if (typeof children === 'string') {
-    content = <Text style={textStyle}>{children}</Text>;
-  }
-
-  useImperativeHandle(ref, () => ({
-    _nativeNode: linkRef.current
-  }));
-
-  if (isWeex) {
-    return <a className={cx('rax-link', className)} ref={linkRef} {...nativeProps}>{content}</a>;
-  } else {
-    return <a className={cx('rax-link', className)} ref={linkRef} {...nativeProps} style={style}>{content}</a>;
-  }
-};
-
-export default forwardRef(Link);
+export default Link;

@@ -10,5 +10,5 @@ node_modules/
 build/
 dist/
 lib/
-demo/miniapp/.tea
 demo/miniapp/lib
+demo/miniapp/.tea
