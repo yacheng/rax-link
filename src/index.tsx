@@ -30,7 +30,7 @@ const Link: ForwardRefExoticComponent<LinkProps> = forwardRef((props, ref) => {
   if (nativeProps.onPress) {
     nativeProps.onClick = nativeProps.onPress;
   }
-  
+
   return (
     <a
       ref={linkRef}
