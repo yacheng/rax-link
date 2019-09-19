@@ -37,7 +37,6 @@
     "main": "lib/miniapp/index"
   },
   "dependencies": {
-    "omit.js": "^1.0.2",
     "rax-text": "^1.0.1",
     "universal-env": "^1.0.0"
   },
