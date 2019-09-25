@@ -14,7 +14,7 @@ $ npm install rax-link --save
 
 注：
 1、**支持**列表中的 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" />代表 h5, <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" />代表 weex, <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />代表小程序
-2、小程序中需要通过 miniappHref 传递参数支持跳转，参数以“_跳转类型:目标页面路径_”格式传递，跳转类型支持：
+2、小程序中需要通过 mpHref 传递参数支持跳转，参数以“_跳转类型:目标页面路径_”格式传递，跳转类型支持：
 
 - **navigate（默认值）**：从当前页面，跳转到应用内的某个指定页面
   - 需要跳转的应用内非 tabbar 的目标页面路径 ,路径后可以带参数
@@ -28,13 +28,13 @@ $ npm install rax-link --save
   - 跳转的标签页的路径（需在 `app.json` 的 `tabbar` 字段定义的页面）
   - **注意**：路径后不能带参数。
 - **navigateBack**：关闭当前页面，返回上一级或多级页面
-  - 与前面三种路由方式不同，navigateBack 跳转类型对应的 `miniappHref` 参数的格式中**目标页面路径**部分所对应的是返回的页面数（例如：`navigateBack:1` 表示返回上一级），如果返回的页面数大于现有打开的页面数，则返回到首页。
+  - 与前面三种路由方式不同，navigateBack 跳转类型对应的 `mpHref` 参数的格式中**目标页面路径**部分所对应的是返回的页面数（例如：`navigateBack:1` 表示返回上一级），如果返回的页面数大于现有打开的页面数，则返回到首页。
 
-| **属性**    | **类型**   | **默认值** | **必填** | **描述**              | **支持**                                                                                                                                                                                                                                                                                                                                                                |
-| ----------- | ---------- | ---------- | -------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| onPress     | `function` | -          | false    | 节点被点击之后触发    | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> |
-| href        | `String`   | -          | true     | 跳转目标地址          | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" />                                                                                                                          |
-| miniappHref | `String`   | -          | true     | 跳转类型:目标页面路径 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />                                                                                                                                                                                                                                                |
+| **属性** | **类型**   | **默认值** | **必填** | **描述**              | **支持**                                                                                                                                                                                                                                                                                                                                                                |
+| -------- | ---------- | ---------- | -------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onPress  | `function` | -          | false    | 节点被点击之后触发    | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> |
+| href     | `String`   | -          | true     | 跳转目标地址          | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" />                                                                                                                          |
+| mpHref   | `String`   | -          | true     | 跳转类型:目标页面路径 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />                                                                                                                                                                                                                                                |
 
 ## 示例
 
